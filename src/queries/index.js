@@ -1,4 +1,4 @@
-import gql from "graphql.tag";
+import { gql } from "@apollo/client";
 
 const todoFields = gql`
 	fragment TodoFields on TodoType {
@@ -8,7 +8,7 @@ const todoFields = gql`
 		dateAdded
 	}
 `;
-const allTodos = gql`
+const ALL_TODOS = gql`
 	${todoFields}
 	query {
 		allTodos {
@@ -17,7 +17,7 @@ const allTodos = gql`
 	}
 `;
 
-const getTodo = gql`
+const GET_TODO = gql`
 	${todoFields}
 	query getTodo($id: ID!) {
 		getTodo(id: $id) {
@@ -26,4 +26,4 @@ const getTodo = gql`
 	}
 `;
 
-export { allTodos, getTodos };
+export { ALL_TODOS, GET_TODO };
