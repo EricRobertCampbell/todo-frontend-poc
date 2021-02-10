@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+// queries
 const todoFields = gql`
 	fragment TodoFields on TodoType {
 		id
@@ -26,4 +27,16 @@ const GET_TODO = gql`
 	}
 `;
 
-export { ALL_TODOS, GET_TODO };
+// mutations
+const CREATE_TODO = gql`
+	${todoFields}
+	mutation create($task: String) {
+		createTodo(task: $task) {
+			ok
+			todo {
+				...TodoFields
+			}
+		}
+	}
+`;
+export { ALL_TODOS, GET_TODO, CREATE_TODO };
