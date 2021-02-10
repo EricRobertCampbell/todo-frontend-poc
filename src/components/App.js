@@ -2,15 +2,46 @@ import React, { useState, useEffect } from "react";
 import { Form, Text, Checkbox } from "informed";
 import { useLazyQuery, useMutation } from "@apollo/client";
 
-import { ALL_TODOS, GET_TODOS, CREATE_TODO } from "../queries";
+import {
+	ALL_TODOS,
+	GET_TODOS,
+	CREATE_TODO,
+	SET_TODO_COMPLETE,
+} from "../queries";
 
 const Todo = ({ data }) => {
 	const [editing, setEditing] = useState(false);
+	const [setTodoComplete, setTodoCompleteStatus] = useMutation(
+		SET_TODO_COMPLETE
+	);
+	const fieldName = "checkbox_" + data.id;
 	return (
 		<>
 			<Form>
-				<Checkbox field={"checkbox_" + data.id} />
-				{data.task}
+				{({ formState }) => {
+					return (
+						<>
+							<Checkbox
+								field={fieldName}
+								initialValue={data.complete}
+								onClick={() => {
+									setTodoComplete({
+										variables: {
+											id: data.id,
+											complete: formState.values[
+												fieldName
+											]
+												? false
+												: true,
+										},
+									});
+								}}
+							/>
+							{data.task}
+							{setTodoCompleteStatus.error ? <p>ERROR</p> : null}
+						</>
+					);
+				}}
 			</Form>
 		</>
 	);

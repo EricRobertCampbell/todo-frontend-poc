@@ -39,4 +39,16 @@ const CREATE_TODO = gql`
 		}
 	}
 `;
-export { ALL_TODOS, GET_TODO, CREATE_TODO };
+
+const SET_TODO_COMPLETE = gql`
+	${todoFields}
+	mutation setComplete($id: ID, $complete: Boolean) {
+		setTodoComplete(id: $id, complete: $complete) {
+			ok
+			todo {
+				...TodoFields
+			}
+		}
+	}
+`;
+export { ALL_TODOS, GET_TODO, CREATE_TODO, SET_TODO_COMPLETE };
