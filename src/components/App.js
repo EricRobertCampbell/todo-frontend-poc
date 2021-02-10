@@ -9,8 +9,7 @@ import {
 	SET_TODO_COMPLETE,
 } from "../queries";
 
-const Todo = ({ data }) => {
-	const [editing, setEditing] = useState(false);
+export const Todo = ({ data }) => {
 	const [setTodoComplete, setTodoCompleteStatus] = useMutation(
 		SET_TODO_COMPLETE
 	);
