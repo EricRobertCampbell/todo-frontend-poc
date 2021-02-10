@@ -1,44 +1,48 @@
 {
-  "name": "todo-frontend-poc",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@apollo/client": "^3.3.9",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/user-event": "^12.1.10",
-    "graphql": "^15.5.0",
-    "informed": "^3.29.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.2",
-    "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@testing-library/react": "^11.2.5",
-    "cypress": "^6.4.0"
-  }
+	"name": "todo-frontend-poc",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@apollo/client": "^3.3.9",
+		"@testing-library/jest-dom": "^5.11.4",
+		"@testing-library/user-event": "^12.1.10",
+		"graphql": "^15.5.0",
+		"informed": "^3.29.3",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-scripts": "4.0.2",
+		"web-vitals": "^1.0.1"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"cy:open": "cypress open",
+		"test:jest": "npm test",
+		"test:cypress": "cypress run"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@testing-library/cypress": "^7.0.3",
+		"@testing-library/react": "^11.2.5",
+		"cypress": "^6.4.0"
+	}
 }
